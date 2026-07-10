@@ -7,9 +7,30 @@
     <title>M. Mizwar Fahmi - Portfolio</title>
     <!-- Polyfill for PIXI plugins in Vite -->
     <script>window.global = window;</script>
+    
+    <!-- HARD-PATCH for PIXI WebGL MAX_FRAGMENT_UNIFORM_VECTORS crash -->
+    <script>
+      (function() {
+        function patchWebGL(ContextClass) {
+          if (!ContextClass) return;
+          var originalGetParameter = ContextClass.prototype.getParameter;
+          ContextClass.prototype.getParameter = function(parameter) {
+            // 35657 is the exact hex value (0x8B49) for MAX_FRAGMENT_UNIFORM_VECTORS
+            if (parameter === 35657) {
+              var val = originalGetParameter.call(this, parameter);
+              return (val === 0 || !val) ? 16 : val;
+            }
+            return originalGetParameter.call(this, parameter);
+          };
+        }
+        patchWebGL(window.WebGLRenderingContext);
+        patchWebGL(window.WebGL2RenderingContext);
+      })();
+    </script>
+    
     <!-- Live2D Cubism Core -->
     <script src="https://cubism.live2d.com/sdk-web/cubismcore/live2dcubismcore.min.js"></script>
-    <script type="module" crossorigin src="/Ciestaa/static/index-BzsAX-IU.js"></script>
+    <script type="module" crossorigin src="/Ciestaa/static/index-BSzwKkNF.js"></script>
     <link rel="stylesheet" crossorigin href="/Ciestaa/static/index-DK6KT_nu.css">
   </head>
   <body>
