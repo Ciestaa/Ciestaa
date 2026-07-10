@@ -1,0 +1,51 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-primary text-text font-sans antialiased overflow-x-hidden selection:bg-accent selection:text-primary;
+    cursor: none; /* We will use a custom cursor */
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0d0d0d;
+}
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #ccff00;
+}
+
+/* Utilities for text clipping used in animations */
+.clip-text {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}
+
+/* Custom Cursor */
+.custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #ccff00;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: width 0.2s, height 0.2s, background-color 0.2s;
+}
+
+.custom-cursor.hover {
+  width: 40px;
+  height: 40px;
+  background-color: rgba(204, 255, 0, 0.2);
+}
