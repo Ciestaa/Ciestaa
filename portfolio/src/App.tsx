@@ -6,6 +6,10 @@ import Hero from './components/Hero';
 import About from './components/About';
 import TechStack from './components/TechStack';
 import Projects from './components/Projects';
+import LabSection from './components/LabSection';
+import AFKSection from './components/AFKSection';
+import Live2DWidget from './components/Live2DWidget';
+import HiddenTerminal from './components/HiddenTerminal';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -61,7 +65,12 @@ const App: React.FC = () => {
         <About />
         <TechStack />
         <Projects />
+        <LabSection />
+        <AFKSection />
       </main>
+
+      <Live2DWidget />
+      <HiddenTerminal />
     </div>
   );
 };
