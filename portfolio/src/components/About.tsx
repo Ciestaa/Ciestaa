@@ -1,6 +1,5 @@
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 const About: React.FC = () => {
   const sectionRef = useRef<HTMLElement>(null);

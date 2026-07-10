@@ -16,6 +16,8 @@
     "clsx": "^2.1.1",
     "gsap": "^3.12.5",
     "lucide-react": "^0.412.0",
+    "pixi-live2d-display": "^0.4.0",
+    "pixi.js": "^7.4.2",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "tailwind-merge": "^2.4.0",

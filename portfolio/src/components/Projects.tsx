@@ -1,6 +1,5 @@
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 interface Project {
   id: string;
@@ -36,7 +35,7 @@ const Projects: React.FC = () => {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      cardsRef.current.forEach((card, index) => {
+      cardsRef.current.forEach((card) => {
         if (!card) return;
         
         gsap.fromTo(card, 
